@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="MainActivity2">
+
+    <TextView
+        android:id="@+id/donation"
+        android:layout_width="382dp"
+        android:layout_height="148dp"
+        android:background="@drawable/box"
+        android:text="DONATION"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.042" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="381dp"
+        android:layout_height="287dp"
+        android:layout_marginTop="192dp"
+
+        android:justificationMode="inter_word"
+        android:text="Online education donation is crucial in providing equal educational opportunities for all regardless of their socioeconomic status. It helps to bridge the digital divide, enhance academic outcomes, and promote lifelong learning. By supporting online education, individuals and organizations can contribute to making education more accessible, affordable, and inclusive for everyone."
+        android:textSize="21sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnInsertData"
+        android:layout_width="350dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="40dp"
+        android:text="NEXT"
+        android:color="#1B62CD"
+        android:backgroundTint="#1B62CD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/btnFetchData"
+        android:layout_width="350dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="52dp"
+        android:backgroundTint="#1B62CD"
+        android:color="#1B62CD"
+        android:text="Donation List"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnInsertData"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
