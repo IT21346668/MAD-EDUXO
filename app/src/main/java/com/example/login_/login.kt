@@ -23,6 +23,8 @@ class login : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        //provides authentication functionality using Firebase.
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.textView.setOnClickListener {
@@ -39,15 +41,16 @@ class login : AppCompatActivity() {
             val email = binding.emailet.text.toString()
             val pass = binding.etpassword.text.toString()
 
-
+            //check whether email and password filed are not empty
             if( email.isNotEmpty() &&  pass.isNotEmpty() ){
 
-
+                    //attempts to sign in the user using Firebase Authentication's
                     firebaseAuth.signInWithEmailAndPassword(email , pass).addOnCompleteListener{
                         if(it.isSuccessful){
                             val intent = Intent(this , MainActivity::class.java)
                             startActivity(intent)
 
+                            //if there is any error during sign-in process toast message will display
                         }else{
                             Toast.makeText(this , it.exception.toString(), Toast.LENGTH_SHORT).show()
                         }
@@ -55,7 +58,7 @@ class login : AppCompatActivity() {
 
                     }
 
-
+            //if password and email filed is empty this toast message will display
             }else{
                 Toast.makeText(this , "Empty Fields are not Allowed" , Toast.LENGTH_SHORT).show()
             }

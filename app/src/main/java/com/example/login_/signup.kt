@@ -26,8 +26,9 @@ class signup : AppCompatActivity() {
         binding = ActivitySignupBinding.inflate(layoutInflater)
     setContentView(binding.root)
 
-
+        //provides authentication functionality using Firebase.
         firebaseAuth = FirebaseAuth.getInstance()
+
         binding.textView.setOnClickListener{
             val intent = Intent(this , signup::class.java)
             startActivity(intent)
@@ -41,10 +42,16 @@ class signup : AppCompatActivity() {
             val pass = binding.etpassword.text.toString()
             val confirmpass = binding.etCpass.text.toString()
 
+
+            //check whether all the filed are not empty
             if(name.isNotEmpty() && email.isNotEmpty() && phone.isNotEmpty() && pass.isNotEmpty() && confirmpass.isNotEmpty()){
+
+                //check whether the password and confirm password match
                 if(pass == confirmpass){
 
                     firebaseAuth.createUserWithEmailAndPassword(email , pass).addOnCompleteListener{
+
+                        //if user creation successfully,it launches the signup activity
                         if(it.isSuccessful){
                             val intent = Intent(this , signup::class.java)
                             startActivity(intent)
@@ -56,6 +63,7 @@ class signup : AppCompatActivity() {
 
                     }
 
+                    // If the password and confirm password do not match.this toast message will display
                 }else{
                     Toast.makeText(this , "password is not matching" , Toast.LENGTH_SHORT).show()
                 }
@@ -65,7 +73,7 @@ class signup : AppCompatActivity() {
 
 
         }
-        //example
+        //new added
         floatingActionButton = findViewById(R.id.floatingActionButton)
 
         floatingActionButton.setOnClickListener{

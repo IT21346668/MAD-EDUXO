@@ -13,9 +13,11 @@ class ResetPasswordActivity : AppCompatActivity() {
 
     private lateinit var etPassword:EditText
     private lateinit var btnReset:Button
-    //new
+    private lateinit var btn_reset:Button
+
     private lateinit var Fab_Back:FloatingActionButton
 
+    //provides authentication functionality using Firebase.
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,10 +33,14 @@ class ResetPasswordActivity : AppCompatActivity() {
         btnReset.setOnClickListener {
 
             val sPassword =  etPassword.text.toString()
+
+            //If the password reset email is sent successfully, the addOnSuccessListener method is called
             firebaseAuth.sendPasswordResetEmail(sPassword)
                 .addOnSuccessListener {
                     Toast.makeText(this, "plaese check your Email" , Toast.LENGTH_SHORT).show()
                 }
+                    //if the problem occurs while sending the Email ,displays an error message to the user using a
+                // Toast notification
                 .addOnFailureListener{
                     Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
                 }
@@ -48,6 +54,16 @@ class ResetPasswordActivity : AppCompatActivity() {
             val intent = Intent(this , login::class.java)
             startActivity(intent)
         }
+
+        //new B
+        btn_reset = findViewById(R.id.btn_reset)
+
+        btn_reset.setOnClickListener{
+
+            val intent = Intent(this , Success::class.java)
+            startActivity(intent)
+        }
+
 
 
     }
